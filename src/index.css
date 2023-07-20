@@ -1,13 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	box-sizing: border-box;
+	transition: all 0.05s;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+		'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+		'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+:root {
+	--text: #2b3044;
+	--line: #bbc1e1;
+	--line-active: #275efe;
+}
+
+.p-text {
+	font-size: 18px;
+	margin: 0;
+	color: var(--text);
+}
+.p-text > a {
+	display: inline-block;
+	position: relative;
+	text-decoration: none;
+	color: inherit;
+	margin: 0 var(--spacing, 0px);
+	transition: margin 0.25s;
+}
+.p-text > a:hover {
+	--spacing: 4px;
+	--stroke: var(--line-active);
+	--stroke-delay: 0.1s;
+	--offset: 180px;
+}
+.p-text > a > svg {
+	width: 166px;
+	height: 60px;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	transform: translate(-50%, 7px) translateZ(0);
+	fill: none;
+	stroke: var(--stroke, var(--line));
+	stroke-linecap: round;
+	stroke-width: 2px;
+	stroke-dasharray: var(--offset, 69px) 278px;
+	stroke-dashoffset: 361px;
+	transition: stroke 0.25s ease var(--stroke-delay, 0s),
+		stroke-dasharray 0.35s;
 }
